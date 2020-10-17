@@ -118,11 +118,22 @@ public class Movement : MonoBehaviour
 
     private void FlipVertical()
     {
-        m_FactingFront = !m_FactingFront;
+        Collider2D item = gameObject.GetComponent<PickUp>().getPicked();
 
+        m_FactingFront = !m_FactingFront;
+        
         if (m_FactingFront)
+        {
             characterSprite.sprite = characterFront;
+            
+            if (item != null)
+                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, -1);
+        }
         else
+        {
             characterSprite.sprite = characterBack;
+            if(item != null)
+                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+        }
     }
 }

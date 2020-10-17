@@ -26,7 +26,6 @@ public class PickUp : MonoBehaviour
             spaceButton.image.color = Color.red;
             if (collide)
             {
-
                 img.sprite = item.GetComponent<SpriteRenderer>().sprite;
                 img.SetNativeSize();
                 img.transform.localScale = item.transform.localScale;
@@ -46,6 +45,11 @@ public class PickUp : MonoBehaviour
                 img.enabled = false;
             }
         }
+    }
+
+    public Collider2D getPicked()
+    {
+        return item;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
