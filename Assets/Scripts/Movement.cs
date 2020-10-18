@@ -156,13 +156,6 @@ public class Movement : MonoBehaviour
             // ... flip the player.
             Flip();
         }
-
-        /*
-        if (vertical > 0 && m_FactingFront)
-            FlipVertical();
-        else if (vertical < 0 && !m_FactingFront)
-            FlipVertical();
-        */
     }
 
     private void Flip()
@@ -174,27 +167,6 @@ public class Movement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    private void FlipVertical()
-    {
-        Collider2D item = gameObject.GetComponent<PickUp>().getPicked();
-
-        m_FactingFront = !m_FactingFront;
-        
-        if (m_FactingFront)
-        {
-            //characterSprite.sprite = characterFront;
-            
-            if (item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, -1);
-        }
-        else
-        {
-            //characterSprite.sprite = characterBack;
-            if(item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

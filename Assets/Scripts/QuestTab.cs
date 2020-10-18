@@ -6,64 +6,52 @@ using TMPro;
 
 public class QuestTab : MonoBehaviour
 {
-
-    enum Action
-    {
-        PickUp,
-        FillUp
-    }
-
     public List<GameObject> quests;
-    private int completedQuests;
+    private int completedTasks;
     private Vector3 previousPos;
+    private Quest quest;
 
     private void Awake()
     {
-        cleanQuests();
-        UpdateQuestList();
+        GetQuest();
     }
 
-    private void cleanQuests()
+    private void GetQuest()
     {
-        foreach(GameObject quest in quests)
-        {
-            quest.GetComponent<Quests>().condition = false;
-            quest.GetComponent<Text>().fontStyle = FontStyle.Normal;
-        }
-    }
-
-    private void UpdateQuestList()
-    {
-        completedQuests = 0;
+        completedTasks = 0;
 
         Vector3 parentPos = gameObject.transform.position;
 
         previousPos = new Vector3(parentPos.x + 15, parentPos.y - 35, 0);
 
-        for (int i = 0; i < quests.Count; i++)
+        // Get a random quest
+        int index = Random.Range(0, quests.Count);
+        quest = quests[index].GetComponent<Quest>();
+
+        foreach(GameObject task in quest.tasks)
         {
-            GameObject go = Instantiate(quests[i], new Vector3(previousPos.x, previousPos.y, 0), Quaternion.identity, gameObject.transform);
+            GameObject go = Instantiate(task, new Vector3(previousPos.x, previousPos.y, 0), Quaternion.identity, gameObject.transform);
             previousPos.y -= 25;
             go.transform.localScale = transform.localScale;
         }
 
-        gameObject.GetComponent<Text>().text = "Tasks (" + completedQuests + "/" + quests.Count + ")";
+        gameObject.GetComponent<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
     }
 
     public void CheckQuest(string tag, Actions action)
     {
-        Quests quest;
+        QuestTask qT;
 
-        foreach (Transform child in transform)
+        foreach (Transform task in transform)
         {
-            quest = child.gameObject.GetComponent<Quests>();
+            qT = task.GetComponent<QuestTask>();
 
-            if(child.tag == tag && quest.actionNeeded == action && !quest.condition)
+            if(task.tag == tag && qT.actionNeeded == action && !qT.condition)
             {
-                completedQuests++;
-                quest.condition = true;
-                child.gameObject.GetComponent<Text>().fontStyle = FontStyle.Italic;
-                gameObject.GetComponent<Text>().text = "Tasks (" + completedQuests + "/" + quests.Count + ")";
+                completedTasks++;
+                qT.condition = true;
+                task.GetComponent<Text>().fontStyle = FontStyle.Italic;
+                gameObject.GetComponent<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
                 break;
             }
         }

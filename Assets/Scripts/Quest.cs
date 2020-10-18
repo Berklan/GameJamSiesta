@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Actions
+public class Quest : MonoBehaviour
 {
-    PickUp,
-    FillUp,
-    Splash
+    public List<GameObject> tasks;
 }

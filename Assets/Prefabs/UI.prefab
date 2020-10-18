@@ -93,8 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 7971927259071910914, guid: f504d0e0df7228d4dbf632f015a5dfd9, type: 3}
-  - {fileID: 7537544399537495618, guid: bc177ffe4ca058a4eb87b1fc2fcf0c06, type: 3}
+  - {fileID: 4514906965848676683, guid: 2d74b7217563c1844a4d377b484133a8, type: 3}
 --- !u!1 &716567359411755497
 GameObject:
   m_ObjectHideFlags: 0
