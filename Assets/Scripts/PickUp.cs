@@ -12,9 +12,12 @@ public class PickUp : MonoBehaviour
     public Button spaceButton;
     public GameObject selectedItem;
 
+    private GameObject questTab;
+
     private void Awake()
     {
         selectedItem.GetComponent<Image>().enabled = false;
+        questTab = GameObject.Find("QuestTab");
     }
 
     private void Update()
@@ -32,6 +35,7 @@ public class PickUp : MonoBehaviour
                 img.enabled = true;
                 item.transform.parent = gameObject.transform;
                 item.transform.position = gameObject.transform.position;
+                QuestItem();
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
@@ -67,5 +71,10 @@ public class PickUp : MonoBehaviour
         {
             collide = false;
         }
+    }
+
+    private void QuestItem()
+    {
+        questTab.GetComponent<QuestTab>().CheckQuest(item.gameObject.tag, Actions.PickUp);
     }
 }
