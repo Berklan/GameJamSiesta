@@ -203,6 +203,11 @@ public class Movement : MonoBehaviour
         {
             area = collision.tag;
         }
+    
+        if(collision.gameObject.layer == 20)
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -213,6 +218,11 @@ public class Movement : MonoBehaviour
                 area = "RunningArea";
             else
                 area = "";
+        }
+
+        if (collision.gameObject.layer == 20)
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
