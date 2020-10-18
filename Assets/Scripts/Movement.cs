@@ -32,10 +32,20 @@ public class Movement : MonoBehaviour
     public Sprite characterFront;
     public Sprite characterBack;
 
+    private Gauge gauge;
+    private string area;
+    private float time;
+    public float walkingCloseIncrease;
+    public float runningIncrease;
+    public float runningCloseIncrease;
+    public float restDecrease;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         characterSprite = gameObject.GetComponent<SpriteRenderer>();
+        gauge = GameObject.Find("Gauge").GetComponent<Gauge>();
+        time = 0;
     }
 
     // Update is called once per frame
@@ -69,6 +79,48 @@ public class Movement : MonoBehaviour
             dButton.image.color = Color.red;
         else
             dButton.image.color = Color.white;
+
+        time += Time.deltaTime;
+
+        //Fill gauge
+        if (time > 1f)
+        {
+            switch (area)
+            {
+                case "WalkingArea":
+                    if (horizontalMove != 0 || verticalMove != 0)
+                    {
+                        if (running)
+                        {
+                            //Running on walking area
+                            gauge.setGauge(runningCloseIncrease);
+                        }
+                        else
+                        {
+                            //Walking on walking area
+                            gauge.setGauge(walkingCloseIncrease);
+                        }
+                        time = 0;
+                    }
+                    break;
+                case "RunningArea":
+                    if (horizontalMove != 0 || verticalMove != 0)
+                    {
+                        if (running)
+                        {
+                            //Running on RunningArea
+                            gauge.setGauge(runningIncrease);
+                            time = 0;
+                        }
+                    }
+                    break;
+                default:
+                    gauge.setGauge(-restDecrease);
+                    time = 0;
+                    break;
+            }
+            
+        }
     }
 
     private void FixedUpdate()
@@ -134,6 +186,25 @@ public class Movement : MonoBehaviour
             characterSprite.sprite = characterBack;
             if(item != null)
                 item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            area = collision.tag;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            if (collision.tag == "WalkingArea")
+                area = "RunningArea";
+            else
+                area = "";
         }
     }
 }

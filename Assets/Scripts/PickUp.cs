@@ -58,13 +58,19 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collide = true;
-        item = collision;
+        if (collision.gameObject.layer == 9)
+        {
+            collide = true;
+            item = collision;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collide = false;
+        if (collision.gameObject.layer == 9)
+        {
+            collide = false;
+        }
     }
 
     private void QuestItem()

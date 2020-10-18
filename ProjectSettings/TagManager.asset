@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bucket
   - SpawnPoint
+  - Dad
+  - RunningArea
+  - WalkingArea
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - Player
   - Item
-  - 
+  - Dad
   - 
   - 
   - 
