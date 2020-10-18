@@ -8,6 +8,7 @@ public class PickUp : MonoBehaviour
 
     private Collider2D item;
     private bool collide = false;
+    private bool picked = false;
 
     public Button spaceButton;
     public GameObject selectedItem;
@@ -27,27 +28,39 @@ public class PickUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             spaceButton.image.color = Color.red;
-            if (collide)
+            if (!picked)
             {
-                img.sprite = item.GetComponent<SpriteRenderer>().sprite;
-                img.SetNativeSize();
-                img.transform.localScale = item.transform.localScale;
-                img.enabled = true;
-                item.transform.parent = gameObject.transform;
-                item.transform.position = gameObject.transform.position;
-                QuestItem();
+                if (collide)
+                {
+                    img.sprite = item.GetComponent<SpriteRenderer>().sprite;
+                    img.SetNativeSize();
+                    img.transform.localScale = item.transform.localScale;
+                    img.enabled = true;
+                    item.transform.parent = gameObject.transform;
+                    item.transform.position = gameObject.transform.position;
+                    item.gameObject.SetActive(false);
+                    picked = true;
+                    QuestItem();
+                }
             }
+            else
+            {
+                if (item != null)
+                {
+                    item.gameObject.SetActive(true);
+                    item.transform.parent = null;
+                    item = null;
+                    img.sprite = null;
+                    img.enabled = false;
+                    picked = false;
+                }
+            }
+
         }
+
         if (Input.GetKeyUp(KeyCode.Space))
         {
             spaceButton.image.color = Color.white;
-            if(item != null)
-            {
-                item.transform.parent = null;
-                item = null;
-                img.sprite = null;
-                img.enabled = false;
-            }
         }
     }
 

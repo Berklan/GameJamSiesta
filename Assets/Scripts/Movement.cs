@@ -40,6 +40,8 @@ public class Movement : MonoBehaviour
     public float runningCloseIncrease;
     public float restDecrease;
 
+    public Animator animator;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -138,23 +140,29 @@ public class Movement : MonoBehaviour
         // And then smoothing it out and applying it to the character
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
+        // Set animation parameters
+        animator.SetFloat("horizontalSpeed", Mathf.Abs(horizontal * speed));
+        animator.SetFloat("verticalSpeed", vertical * speed);
+
         // If the input is moving the player right and the player is facing left...
-        if (horizontal > 0 && !m_FacingRight)
+        if (horizontal < 0 && !m_FacingRight)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (horizontal < 0 && m_FacingRight)
+        else if (horizontal > 0 && m_FacingRight)
         {
             // ... flip the player.
             Flip();
         }
 
+        /*
         if (vertical > 0 && m_FactingFront)
             FlipVertical();
         else if (vertical < 0 && !m_FactingFront)
             FlipVertical();
+        */
     }
 
     private void Flip()
@@ -176,16 +184,16 @@ public class Movement : MonoBehaviour
         
         if (m_FactingFront)
         {
-            characterSprite.sprite = characterFront;
+            //characterSprite.sprite = characterFront;
             
             if (item != null)
                 item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, -1);
         }
         else
         {
-            characterSprite.sprite = characterBack;
+            //characterSprite.sprite = characterBack;
             if(item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
         }
     }
 
