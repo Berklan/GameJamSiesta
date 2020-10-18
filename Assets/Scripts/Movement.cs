@@ -32,10 +32,22 @@ public class Movement : MonoBehaviour
     public Sprite characterFront;
     public Sprite characterBack;
 
+    private Gauge gauge;
+    private string area;
+    private float time;
+    public float walkingCloseIncrease;
+    public float runningIncrease;
+    public float runningCloseIncrease;
+    public float restDecrease;
+
+    public Animator animator;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         characterSprite = gameObject.GetComponent<SpriteRenderer>();
+        gauge = GameObject.Find("Gauge").GetComponent<Gauge>();
+        time = 0;
     }
 
     // Update is called once per frame
@@ -69,6 +81,48 @@ public class Movement : MonoBehaviour
             dButton.image.color = Color.red;
         else
             dButton.image.color = Color.white;
+
+        time += Time.deltaTime;
+
+        //Fill gauge
+        if (time > 1f)
+        {
+            switch (area)
+            {
+                case "WalkingArea":
+                    if (horizontalMove != 0 || verticalMove != 0)
+                    {
+                        if (running)
+                        {
+                            //Running on walking area
+                            gauge.setGauge(runningCloseIncrease);
+                        }
+                        else
+                        {
+                            //Walking on walking area
+                            gauge.setGauge(walkingCloseIncrease);
+                        }
+                        time = 0;
+                    }
+                    break;
+                case "RunningArea":
+                    if (horizontalMove != 0 || verticalMove != 0)
+                    {
+                        if (running)
+                        {
+                            //Running on RunningArea
+                            gauge.setGauge(runningIncrease);
+                            time = 0;
+                        }
+                    }
+                    break;
+                default:
+                    gauge.setGauge(-restDecrease);
+                    time = 0;
+                    break;
+            }
+            
+        }
     }
 
     private void FixedUpdate()
@@ -86,23 +140,29 @@ public class Movement : MonoBehaviour
         // And then smoothing it out and applying it to the character
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
+        // Set animation parameters
+        animator.SetFloat("horizontalSpeed", Mathf.Abs(horizontal * speed));
+        animator.SetFloat("verticalSpeed", vertical * speed);
+
         // If the input is moving the player right and the player is facing left...
-        if (horizontal > 0 && !m_FacingRight)
+        if (horizontal < 0 && !m_FacingRight)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (horizontal < 0 && m_FacingRight)
+        else if (horizontal > 0 && m_FacingRight)
         {
             // ... flip the player.
             Flip();
         }
 
+        /*
         if (vertical > 0 && m_FactingFront)
             FlipVertical();
         else if (vertical < 0 && !m_FactingFront)
             FlipVertical();
+        */
     }
 
     private void Flip()
@@ -124,16 +184,35 @@ public class Movement : MonoBehaviour
         
         if (m_FactingFront)
         {
-            characterSprite.sprite = characterFront;
+            //characterSprite.sprite = characterFront;
             
             if (item != null)
                 item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, -1);
         }
         else
         {
-            characterSprite.sprite = characterBack;
+            //characterSprite.sprite = characterBack;
             if(item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 0);
+                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            area = collision.tag;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            if (collision.tag == "WalkingArea")
+                area = "RunningArea";
+            else
+                area = "";
         }
     }
 }
