@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private bool m_FactingFront = true;
     private Vector3 m_Velocity = Vector3.zero;
 
     float horizontalMove = 0f;
@@ -24,13 +23,6 @@ public class Movement : MonoBehaviour
     public Button aButton;
     public Button sButton;
     public Button dButton;
-    
-    public Image unselectedButton;
-    public Image selectedButton;
-
-    private SpriteRenderer characterSprite;
-    public Sprite characterFront;
-    public Sprite characterBack;
 
     private Gauge gauge;
     private string area;
@@ -45,7 +37,6 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        characterSprite = gameObject.GetComponent<SpriteRenderer>();
         gauge = GameObject.Find("Gauge").GetComponent<Gauge>();
         time = 0;
     }

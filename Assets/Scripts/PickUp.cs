@@ -9,6 +9,8 @@ public class PickUp : MonoBehaviour
     private Collider2D item;
     private bool collide = false;
     private bool picked = false;
+    private bool fillUp = false;
+    private bool filled = false;
 
     public Button spaceButton;
     public GameObject selectedItem;
@@ -38,21 +40,25 @@ public class PickUp : MonoBehaviour
                     img.enabled = true;
                     item.transform.parent = gameObject.transform;
                     item.transform.position = gameObject.transform.position;
-                    item.gameObject.SetActive(false);
+                    item.GetComponent<SpriteRenderer>().enabled = false;
                     picked = true;
-                    QuestItem();
+                    if (filled)
+                        fillUp = true;
+                    QuestItem(Actions.PickUp);
                 }
             }
             else
             {
                 if (item != null)
                 {
-                    item.gameObject.SetActive(true);
+                    item.GetComponent<SpriteRenderer>().enabled = true;
                     item.transform.parent = null;
+                    item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
                     item = null;
                     img.sprite = null;
                     img.enabled = false;
                     picked = false;
+                    fillUp = false;
                 }
             }
 
@@ -61,6 +67,16 @@ public class PickUp : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             spaceButton.image.color = Color.white;
+        }
+
+        if (fillUp)
+        {
+            filled = true;
+            img.sprite = item.GetComponent<SpriteRenderer>().sprite;
+            img.SetNativeSize();
+            img.transform.localScale = item.transform.localScale;
+            img.enabled = true;
+            QuestItem(Actions.FillUp);
         }
     }
 
@@ -76,6 +92,15 @@ public class PickUp : MonoBehaviour
             collide = true;
             item = collision;
         }
+
+        if(collision.gameObject.tag == "Sink" && item != null)
+        {
+            if(item.tag == "Bucket" && picked)
+            {
+                item.GetComponent<Animator>().SetBool("filled", true);
+                fillUp = true;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -86,8 +111,8 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void QuestItem()
+    private void QuestItem(Actions action)
     {
-        questTab.GetComponent<QuestTab>().CheckQuest(item.gameObject.tag, Actions.PickUp);
+        questTab.GetComponent<QuestTab>().CheckQuest(item.gameObject.tag, action);
     }
 }
