@@ -10,6 +10,7 @@ TagManager:
   - RunningArea
   - WalkingArea
   - Sink
+  - Hit
   layers:
   - Default
   - TransparentFX

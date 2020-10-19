@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickUp : MonoBehaviour
+public class CharacterActions : MonoBehaviour
 {
 
+    private Collider2D collisionItem;
     private Collider2D item;
     private bool collide = false;
     private bool picked = false;
@@ -34,13 +35,14 @@ public class PickUp : MonoBehaviour
             {
                 if (collide)
                 {
-                    img.sprite = item.GetComponent<SpriteRenderer>().sprite;
+                    item = collisionItem;
+                    img.sprite = collisionItem.GetComponent<SpriteRenderer>().sprite;
                     img.SetNativeSize();
-                    img.transform.localScale = item.transform.localScale;
+                    img.transform.localScale = collisionItem.transform.localScale;
                     img.enabled = true;
-                    item.transform.parent = gameObject.transform;
-                    item.transform.position = gameObject.transform.position;
-                    item.GetComponent<SpriteRenderer>().enabled = false;
+                    collisionItem.transform.parent = gameObject.transform;
+                    collisionItem.transform.position = gameObject.transform.position;
+                    collisionItem.GetComponent<SpriteRenderer>().enabled = false;
                     picked = true;
                     if (filled)
                         fillUp = true;
@@ -49,12 +51,13 @@ public class PickUp : MonoBehaviour
             }
             else
             {
-                if (item != null)
+                if (collisionItem != null)
                 {
-                    item.GetComponent<SpriteRenderer>().enabled = true;
-                    item.transform.parent = null;
-                    item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
                     item = null;
+                    collisionItem.GetComponent<SpriteRenderer>().enabled = true;
+                    collisionItem.transform.parent = null;
+                    collisionItem.transform.position = new Vector3(collisionItem.transform.position.x, collisionItem.transform.position.y, 1);
+                    collisionItem = null;
                     img.sprite = null;
                     img.enabled = false;
                     picked = false;
@@ -72,9 +75,9 @@ public class PickUp : MonoBehaviour
         if (fillUp)
         {
             filled = true;
-            img.sprite = item.GetComponent<SpriteRenderer>().sprite;
+            img.sprite = collisionItem.GetComponent<SpriteRenderer>().sprite;
             img.SetNativeSize();
-            img.transform.localScale = item.transform.localScale;
+            img.transform.localScale = collisionItem.transform.localScale;
             img.enabled = true;
             QuestItem(Actions.FillUp);
         }
@@ -82,7 +85,7 @@ public class PickUp : MonoBehaviour
 
     public Collider2D getPicked()
     {
-        return item;
+        return collisionItem;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,15 +93,23 @@ public class PickUp : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             collide = true;
-            item = collision;
+            collisionItem = collision;
         }
 
-        if(collision.gameObject.tag == "Sink" && item != null)
+        if(collision.gameObject.tag == "Sink" && collisionItem != null)
         {
-            if(item.tag == "Bucket" && picked)
+            if(collisionItem.tag == "Bucket" && picked)
             {
-                item.GetComponent<Animator>().SetBool("filled", true);
+                collisionItem.GetComponent<Animator>().SetBool("filled", true);
                 fillUp = true;
+            }
+        }
+
+        if(collision.gameObject.tag == "Hit" && item != null)
+        {
+            if(item.tag == "Bucket" && filled)
+            {
+                QuestItem(Actions.Splash);
             }
         }
     }
@@ -113,6 +124,6 @@ public class PickUp : MonoBehaviour
 
     private void QuestItem(Actions action)
     {
-        questTab.GetComponent<QuestTab>().CheckQuest(item.gameObject.tag, action);
+        questTab.GetComponent<QuestTab>().CheckQuest(collisionItem.gameObject.tag, action);
     }
 }
