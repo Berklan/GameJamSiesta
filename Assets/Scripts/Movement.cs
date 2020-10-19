@@ -5,14 +5,11 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-    private Rigidbody2D m_Rigidbody2D;
-    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private bool m_FactingFront = true;
-    private Vector3 m_Velocity = Vector3.zero;
 
-    float horizontalMove = 0f;
-    float verticalMove = 0f;
+    private Rigidbody2D m_Rigidbody2D;
+    private bool facingRight = true;  // For determining which way the player is currently facing.
+
+    Vector2 movement;
 
     public float walkSpeed = 5f;
     public float runSpeed = 7f;
@@ -24,13 +21,6 @@ public class Movement : MonoBehaviour
     public Button aButton;
     public Button sButton;
     public Button dButton;
-    
-    public Image unselectedButton;
-    public Image selectedButton;
-
-    private SpriteRenderer characterSprite;
-    public Sprite characterFront;
-    public Sprite characterBack;
 
     private Gauge gauge;
     private string area;
@@ -45,7 +35,6 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        characterSprite = gameObject.GetComponent<SpriteRenderer>();
         gauge = GameObject.Find("Gauge").GetComponent<Gauge>();
         time = 0;
     }
@@ -53,8 +42,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal");
-        verticalMove = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
         running = Input.GetKey(KeyCode.LeftShift);
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -90,7 +79,7 @@ public class Movement : MonoBehaviour
             switch (area)
             {
                 case "WalkingArea":
-                    if (horizontalMove != 0 || verticalMove != 0)
+                    if (movement.x != 0 || movement.y != 0)
                     {
                         if (running)
                         {
@@ -106,7 +95,7 @@ public class Movement : MonoBehaviour
                     }
                     break;
                 case "RunningArea":
-                    if (horizontalMove != 0 || verticalMove != 0)
+                    if (movement.x != 0 || movement.y != 0)
                     {
                         if (running)
                         {
@@ -128,73 +117,44 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!running)
-            Move(horizontalMove, verticalMove, walkSpeed);
+            Move(walkSpeed);
         else
-            Move(horizontalMove, verticalMove, runSpeed);
+            Move(runSpeed);
     }
 
-    public void Move(float horizontal, float vertical, float speed)
+    public void Move(float speed)
     {
-        // Move the character by finding the target velocity
-        Vector3 targetVelocity = new Vector2(horizontal * speed, vertical * speed);
-        // And then smoothing it out and applying it to the character
-        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+        // Move character
+        m_Rigidbody2D.MovePosition(m_Rigidbody2D.position + movement * speed * Time.fixedDeltaTime);
 
         // Set animation parameters
-        animator.SetFloat("horizontalSpeed", Mathf.Abs(horizontal * speed));
-        animator.SetFloat("verticalSpeed", vertical * speed);
+        animator.SetFloat("horizontal", movement.x);
+        animator.SetFloat("vertical", movement.y);
+        animator.SetFloat("speed", movement.sqrMagnitude);
 
         // If the input is moving the player right and the player is facing left...
-        if (horizontal < 0 && !m_FacingRight)
+        if (movement.x < 0 && !facingRight)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (horizontal > 0 && m_FacingRight)
+        else if (movement.x > 0 && facingRight)
         {
             // ... flip the player.
             Flip();
         }
-
-        /*
-        if (vertical > 0 && m_FactingFront)
-            FlipVertical();
-        else if (vertical < 0 && !m_FactingFront)
-            FlipVertical();
-        */
     }
 
     private void Flip()
     {
         // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
+        facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    private void FlipVertical()
-    {
-        Collider2D item = gameObject.GetComponent<PickUp>().getPicked();
-
-        m_FactingFront = !m_FactingFront;
-        
-        if (m_FactingFront)
-        {
-            //characterSprite.sprite = characterFront;
-            
-            if (item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, -1);
-        }
-        else
-        {
-            //characterSprite.sprite = characterBack;
-            if(item != null)
-                item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
