@@ -9,6 +9,8 @@ TagManager:
   - Dad
   - RunningArea
   - WalkingArea
+  - Sink
+  - Hit
   layers:
   - Default
   - TransparentFX

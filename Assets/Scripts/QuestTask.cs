@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Quests : MonoBehaviour
+public class QuestTask : MonoBehaviour
 {
     public string shortDescription;
     public string description;
@@ -13,5 +14,6 @@ public class Quests : MonoBehaviour
     private void Start()
     {
         condition = false;
+        gameObject.GetComponent<Text>().text = description;
     }
 }
