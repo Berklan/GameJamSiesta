@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
     {
         currentTime -= Time.deltaTime;
 
-        timerText.text = ((int)currentTime).ToString();
+        timerText.text = TimeSpan.FromSeconds(currentTime).ToString(@"mm\:ss");
 
         if(currentTime <= 0f)
         {
