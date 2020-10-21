@@ -16,6 +16,9 @@ public class CharacterActions : MonoBehaviour
     public Button spaceButton;
     public GameObject selectedItem;
 
+    public Sprite bigButton;
+    public Sprite bigButtonClicked;
+
     private GameObject questTab;
 
     private void Awake()
@@ -30,7 +33,7 @@ public class CharacterActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            spaceButton.image.color = Color.red;
+            spaceButton.image.sprite = bigButtonClicked;
             if (!picked)
             {
                 if (collide)
@@ -69,7 +72,7 @@ public class CharacterActions : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            spaceButton.image.color = Color.white;
+            spaceButton.image.sprite = bigButton;
         }
 
         if (fillUp)

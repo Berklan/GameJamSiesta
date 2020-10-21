@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa93ab44c71eed468f82e4f5a13f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementSmoothing: 0.05
   walkSpeed: 5
   runSpeed: 7
   shiftButton: {fileID: 0}
@@ -93,6 +92,10 @@ MonoBehaviour:
   aButton: {fileID: 0}
   sButton: {fileID: 0}
   dButton: {fileID: 0}
+  bigButton: {fileID: 2052969975073588532, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
+  bigButtonClicked: {fileID: 346140782822038302, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
+  smallButton: {fileID: 2968189645938480130, guid: 7267e2cdd5d792747ab0a01cb4710d83, type: 3}
+  smallButtonClicked: {fileID: -3825812181290605296, guid: 7267e2cdd5d792747ab0a01cb4710d83, type: 3}
   walkingCloseIncrease: 2
   runningIncrease: 1
   runningCloseIncrease: 5
@@ -112,6 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceButton: {fileID: 0}
   selectedItem: {fileID: 0}
+  bigButton: {fileID: 2052969975073588532, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
+  bigButtonClicked: {fileID: 346140782822038302, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
 --- !u!212 &1316270442
 SpriteRenderer:
   m_ObjectHideFlags: 0

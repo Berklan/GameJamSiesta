@@ -22,7 +22,7 @@ public class QuestTab : MonoBehaviour
 
         Vector3 parentPos = gameObject.transform.position;
 
-        previousPos = new Vector3(parentPos.x + 15, parentPos.y - 35, 0);
+        previousPos = new Vector3(parentPos.x - 10, parentPos.y - 35, 0);
 
         // Get a random quest
         int index = Random.Range(0, quests.Count);
@@ -35,7 +35,7 @@ public class QuestTab : MonoBehaviour
             go.transform.localScale = transform.localScale;
         }
 
-        gameObject.GetComponent<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
+        gameObject.GetComponentInChildren<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
     }
 
     public void CheckQuest(string tag, Actions action)
@@ -51,7 +51,7 @@ public class QuestTab : MonoBehaviour
                 completedTasks++;
                 qT.condition = true;
                 task.GetComponent<Text>().fontStyle = FontStyle.Italic;
-                gameObject.GetComponent<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
+                gameObject.GetComponentInChildren<Text>().text = "Tasks (" + completedTasks + "/" + quest.tasks.Count + ")";
                 break;
             }
         }

@@ -48,3 +48,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ceiling
+    uniqueID: 3133227977
+    locked: 0

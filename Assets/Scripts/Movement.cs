@@ -22,6 +22,11 @@ public class Movement : MonoBehaviour
     public Button sButton;
     public Button dButton;
 
+    public Sprite bigButton;
+    public Sprite bigButtonClicked;
+    public Sprite smallButton;
+    public Sprite smallButtonClicked;
+
     private Gauge gauge;
     private string area;
     private float time;
@@ -46,30 +51,36 @@ public class Movement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         running = Input.GetKey(KeyCode.LeftShift);
 
+        if (movement.x != 0 || movement.y != 0)
+        {
+            animator.SetFloat("lastHorizontal", movement.x);
+            animator.SetFloat("lastVertical", movement.y);
+        }
+
         if (Input.GetKey(KeyCode.LeftShift))
-            shiftButton.image.color = Color.red;
+            shiftButton.image.sprite = bigButtonClicked;
         else
-            shiftButton.image.color = Color.white;
+            shiftButton.image.sprite = bigButton;
 
         if (Input.GetKey(KeyCode.W))
-            wButton.image.color = Color.red;
+            wButton.image.sprite = smallButtonClicked;
         else
-            wButton.image.color = Color.white;
+            wButton.image.sprite = smallButton;
 
         if (Input.GetKey(KeyCode.A))
-            aButton.image.color = Color.red;
+            aButton.image.sprite = smallButtonClicked;
         else
-            aButton.image.color = Color.white;
+            aButton.image.sprite = smallButton;
 
         if (Input.GetKey(KeyCode.S))
-            sButton.image.color = Color.red;
+            sButton.image.sprite = smallButtonClicked;
         else
-            sButton.image.color = Color.white;
+            sButton.image.sprite = smallButton;
 
         if (Input.GetKey(KeyCode.D))
-            dButton.image.color = Color.red;
+            dButton.image.sprite = smallButtonClicked;
         else
-            dButton.image.color = Color.white;
+            dButton.image.sprite = smallButton;
 
         time += Time.deltaTime;
 
