@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &699757106079243074
+--- !u!1 &8632920131239924159
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2635850345739147538}
-  - component: {fileID: 3142306551868754835}
-  - component: {fileID: 20771442844374358}
-  - component: {fileID: 2225558348161653850}
+  - component: {fileID: 869387617110932768}
+  - component: {fileID: 2487400923841818036}
+  - component: {fileID: 8065355644448167643}
+  - component: {fileID: 5301097099377341002}
   m_Layer: 5
-  m_Name: SplashWater
-  m_TagString: Bucket
+  m_Name: FindFeather
+  m_TagString: Feather
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2635850345739147538
+--- !u!224 &869387617110932768
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699757106079243074}
+  m_GameObject: {fileID: 8632920131239924159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,37 +38,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 260, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3142306551868754835
+--- !u!114 &2487400923841818036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699757106079243074}
+  m_GameObject: {fileID: 8632920131239924159}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fdcda38c4cc7b44995016d266bee265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortDescription: SplashWater
-  description: Splash face with water
-  actionNeeded: 2
+  shortDescription: FindFeather
+  description: Find a feather
+  actionNeeded: 0
   condition: 0
---- !u!222 &20771442844374358
+--- !u!222 &8065355644448167643
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699757106079243074}
+  m_GameObject: {fileID: 8632920131239924159}
   m_CullTransparentMesh: 0
---- !u!114 &2225558348161653850
+--- !u!114 &5301097099377341002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699757106079243074}
+  m_GameObject: {fileID: 8632920131239924159}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 7
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0

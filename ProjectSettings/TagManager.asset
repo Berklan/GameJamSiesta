@@ -18,6 +18,8 @@ TagManager:
   - Fireworks
   - FireworksBucket
   - Stove
+  - ShavingCream
+  - Feather
   layers:
   - Default
   - TransparentFX

@@ -9,5 +9,6 @@ public enum Actions
     FillUp,
     Splash,
     Blow,
-    LightUp
+    LightUp,
+    PickNose
 }

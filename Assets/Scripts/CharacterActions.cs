@@ -92,6 +92,7 @@ public class CharacterActions : MonoBehaviour
                         else
                         {
                             Debug.Log("Game Over - Fireworks ruined");
+                            item.GetComponent<Animator>().SetBool("lit", false);
                         }
                     }
                     else
@@ -232,6 +233,7 @@ public class CharacterActions : MonoBehaviour
             if (item.CompareTag("FireworksBucket") && picked && !fillUp && !litUp)
             {
                 // It's lit, set timer for gameover
+                item.GetComponent<Animator>().SetBool("lit", true);
                 timer.GetComponent<Timer>().SetNewTimer(10f);
                 QuestItem(item.tag, Actions.LightUp);
                 litUp = true;
@@ -253,6 +255,7 @@ public class CharacterActions : MonoBehaviour
             if (item.gameObject.CompareTag("FireworksBucket") && lit)
             {
                 dropable = true;
+                
             }
         }
     }
