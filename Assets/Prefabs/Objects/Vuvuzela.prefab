@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8868008021929171250}
   - component: {fileID: 4578735293737033645}
   - component: {fileID: 9200479190809609053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vuvuzela
-  m_TagString: Untagged
+  m_TagString: Vuvuzela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481945815902824577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0606775, y: 6.460344, z: -127.41072}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.0606775, y: 6.460344, z: 0}
+  m_LocalScale: {x: 0.275, y: 0.275, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.053968683, y: -0.08635449}

@@ -12,6 +12,9 @@ TagManager:
   - Sink
   - Hit
   - Diary
+  - Vuvuzela
+  - Balloon
+  - BalloonVuvuzela
   layers:
   - Default
   - TransparentFX

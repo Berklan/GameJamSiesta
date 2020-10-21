@@ -6,5 +6,6 @@ public enum Actions
 {
     PickUp,
     FillUp,
-    Splash
+    Splash,
+    Blow
 }
