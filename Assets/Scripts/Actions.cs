@@ -5,7 +5,9 @@ using UnityEngine;
 public enum Actions
 {
     PickUp,
+    Drop,
     FillUp,
     Splash,
-    Blow
+    Blow,
+    LightUp
 }

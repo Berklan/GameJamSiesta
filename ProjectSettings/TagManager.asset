@@ -15,6 +15,9 @@ TagManager:
   - Vuvuzela
   - Balloon
   - BalloonVuvuzela
+  - Fireworks
+  - FireworksBucket
+  - Stove
   layers:
   - Default
   - TransparentFX

@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.12, y: -70.08}
-  m_SizeDelta: {x: 274.36224, y: 275.3911}
+  m_AnchoredPosition: {x: -8.12, y: -79.04}
+  m_SizeDelta: {x: 275, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4318648864561111353
 CanvasRenderer:
@@ -684,6 +684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - {fileID: 4514906965848676683, guid: 2d74b7217563c1844a4d377b484133a8, type: 3}
+  - {fileID: 3104031280616933541, guid: 7c7a763e31315bd40a47c1ea83ee7783, type: 3}
+  - {fileID: 5645435596673883661, guid: 62e435b56b3b3ea419f4ca8cafcd4c04, type: 3}
 --- !u!1 &4851106722651521684
 GameObject:
   m_ObjectHideFlags: 0

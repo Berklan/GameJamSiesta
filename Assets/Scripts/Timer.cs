@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
 {
     public float timeLimit;
     private float currentTime;
+    private bool overrideTimer = false;
 
     private Text timerText;
 
@@ -30,20 +31,39 @@ public class Timer : MonoBehaviour
 
         timerText.text = TimeSpan.FromSeconds(currentTime).ToString(@"mm\:ss");
 
+        if (currentTime < 10f)
+            timerText.color = Color.red;
+
         if(currentTime <= 0f)
         {
             Debug.Log("Game Over");
         }
     }
 
+    public void SetNewTimer(float time)
+    {
+        currentTime = time;
+        overrideTimer = true;
+        timerText.enabled = true;
+    }
+
+    public float GetTimer()
+    {
+        return currentTime;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(currentTime);
-        timerText.enabled = true;
+        if (!overrideTimer)
+        {
+            Debug.Log(currentTime);
+            timerText.enabled = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        timerText.enabled = false;
+        if(!overrideTimer)
+            timerText.enabled = false;
     }
 }
