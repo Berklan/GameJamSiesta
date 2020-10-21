@@ -11,9 +11,17 @@ public class QuestTab : MonoBehaviour
     private Vector3 previousPos;
     private Quest quest;
 
+    CanvasGroup canvas;
+
     private void Awake()
     {
         GetQuest();
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
+    }
+
+    public void OpenQuestTab()
+    {
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
 
     private void GetQuest()

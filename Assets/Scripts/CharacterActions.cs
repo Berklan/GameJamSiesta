@@ -34,6 +34,8 @@ public class CharacterActions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             spaceButton.image.sprite = bigButtonClicked;
+
+            // Pick up item
             if (!picked)
             {
                 if (collide)
@@ -54,6 +56,7 @@ public class CharacterActions : MonoBehaviour
             }
             else
             {
+                // Leave item on the floor
                 if (collisionItem != null)
                 {
                     item = null;
@@ -93,13 +96,19 @@ public class CharacterActions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "Diary")
+        {
+            Destroy(collision.gameObject);
+            questTab.GetComponent<QuestTab>().OpenQuestTab();
+        }
+
         if (collision.gameObject.layer == 9)
         {
             collide = true;
             collisionItem = collision;
         }
 
-        if(collision.gameObject.tag == "Sink" && collisionItem != null)
+        if (collision.gameObject.tag == "Sink" && collisionItem != null)
         {
             if(collisionItem.tag == "Bucket" && picked)
             {
