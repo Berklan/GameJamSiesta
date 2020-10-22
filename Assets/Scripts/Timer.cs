@@ -34,10 +34,10 @@ public class Timer : MonoBehaviour
         if (currentTime < 10f)
             timerText.color = Color.red;
 
-        if(currentTime <= 0f)
+        /*if(currentTime <= 0f)
         {
-            GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage("awake");
-        }
+            GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage("time");
+        }*/
     }
 
     public void SetNewTimer(float time)

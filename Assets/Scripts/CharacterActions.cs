@@ -35,7 +35,7 @@ public class CharacterActions : MonoBehaviour
     private AudioSource fireworksLoop;
     private AudioSource fireworksExplosion;
     public AudioSource alarmSound;
-    bool Explosion = false;
+    private bool explosion = false;
     private void Awake()
     {
         selectedItem.GetComponent<Image>().enabled = false;
@@ -214,38 +214,47 @@ public class CharacterActions : MonoBehaviour
             if (dropped || canPickAlarm)
             {
                 if (canPickAlarm)
+                {
                     QuestItem("Trap", Actions.Wait);
-                if(lit && !Explosion)
+                    GameOver("success trap");
+                }
+                if(lit && !explosion)
                 {
                     fireworksLoop.Stop();
+                    GameOver("success firecrackers");
 
                     fireworksExplosion.Play();
-                    Explosion = true;
+                    explosion = true;
                 }
-                else if(!lit && !Explosion)
+                else if(!lit && !explosion)
                 {
                     alarmSound.Play();
-                    Explosion = true;
+                    explosion = true;
                 }
                 // WIN
                 Debug.Log("WIN");
             }
             else
             {
-                if (lit && !Explosion)
+                if (lit && !explosion)
                 {
                     fireworksLoop.Stop();
 
                     fireworksExplosion.Play();
-                    Explosion = true;
+                    explosion = true;
+
+                    if (item && item.CompareTag("FireworksBucket"))
+                        GameOver("holding firecrackers");
+                    else
+                        GameOver("firecrackers out");
                 }
-                else if (!lit && !Explosion)
+                else if (!lit && !explosion)
                 {
                     alarmSound.Play();
-                    Explosion = true;
+                    explosion = true;
+
+                    GameOver("time");
                 }
-                // LOSE
-                Debug.Log("LOSE");
             }
 
         }
@@ -340,11 +349,13 @@ public class CharacterActions : MonoBehaviour
             if(item.gameObject.CompareTag("Bucket") && filled)
             {
                 QuestItem(item.tag, Actions.Splash);
+                GameOver("success water");
             }
 
             if (item.gameObject.CompareTag("BalloonVuvuzela"))
             {
                 QuestItem(item.tag, Actions.Blow);
+                GameOver("success vuvuzela");
             }
 
             if (item.gameObject.CompareTag("FireworksBucket") && lit)
@@ -366,11 +377,13 @@ public class CharacterActions : MonoBehaviour
                 {
                     // WIN
                     Debug.Log("WIN");
+                    GameOver("success foam");
                 }
                 else
                 {
                     // LOSE didnt complete all the tasks
                     Debug.Log("LOSE");
+                    GameOver("awake");
                 }
             }
         }
@@ -407,6 +420,6 @@ public class CharacterActions : MonoBehaviour
 
     private void GameOver(string tag)
     {
-        //GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage(tag);
+        GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage(tag);
     }
 }

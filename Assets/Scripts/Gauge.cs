@@ -14,6 +14,12 @@ public class Gauge : MonoBehaviour
         slider.value = 0;
     }
 
+    public void Update()
+    {
+        if(slider.value >= slider.maxValue)
+            GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage("awake");
+    }
+
     public void setGauge(float value)
     {
         slider.value += value;

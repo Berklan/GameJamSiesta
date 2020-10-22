@@ -1324,7 +1324,7 @@ PrefabInstance:
     - target: {fileID: 4851106722394179288, guid: 65258bbd0fc66e14aa00d6c008a9a052, type: 3}
       propertyPath: quests.Array.data[0]
       value: 
-      objectReference: {fileID: 5086490687742830630, guid: 1760a68ea1c37c648b054e672bb307e6, type: 3}
+      objectReference: {fileID: 4514906965848676683, guid: 2d74b7217563c1844a4d377b484133a8, type: 3}
     - target: {fileID: 4851106722394179291, guid: 65258bbd0fc66e14aa00d6c008a9a052, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 766

@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class SpawnList : MonoBehaviour
 {
-    private GameObject[] spawns;
+    private List<GameObject> spawns;
     private Spawner spawner;
 
     private void Awake()
     {
-        spawns = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawns = GameObject.FindGameObjectsWithTag("SpawnPoint").ToList<GameObject>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
     }
 
@@ -20,14 +21,13 @@ public class SpawnList : MonoBehaviour
         GameObject obj, sp;
         int i = 0;
 
-        while (i < spawns.Length && !spawner.IsEmpty())
+        while (spawns.Count > 0 && !spawner.IsEmpty())
         {
             sp = spawns[i];
+
             obj = spawner.GetRandom();
 
             Instantiate(obj, sp.transform.position, quaternion.identity);
-
-            i++;
         }
     }
 
