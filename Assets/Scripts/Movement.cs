@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public float runSpeed = 7f;
 
     private bool running = false;
+    private bool firstTime = true;
 
     public Button shiftButton;
     public Button wButton;
@@ -207,12 +208,14 @@ public class Movement : MonoBehaviour
             area = collision.tag;
         }
     
-        if(collision.gameObject.layer == 20)
+        if(collision.gameObject.layer == 20 && firstTime)
         {
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.GetComponent<AudioSource>().Stop();
             collision.GetComponent<AudioSource>().clip = openingDoor;
             collision.GetComponent<AudioSource>().Play();
+
+            firstTime = false;
         }
     }
 
@@ -232,6 +235,8 @@ public class Movement : MonoBehaviour
             collision.GetComponent<AudioSource>().Stop();
             collision.GetComponent<AudioSource>().clip = closingDoor;
             collision.GetComponent<AudioSource>().Play();
+
+            firstTime = true;
         }
     }
 }
