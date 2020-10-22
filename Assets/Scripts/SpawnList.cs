@@ -23,7 +23,10 @@ public class SpawnList : MonoBehaviour
 
         while (spawns.Count > 0 && !spawner.IsEmpty())
         {
+            i = UnityEngine.Random.Range(0, spawns.Count);
+
             sp = spawns[i];
+            spawns.RemoveAt(i);
 
             obj = spawner.GetRandom();
 
