@@ -45,15 +45,16 @@ public class SceneController : MonoBehaviour
                     audio.Play();
                 }
 
-                if (index > 3)
-                {
-                    gOT.text = "Victory";
-                    gOT.color = Color.green;
-                }
-                else if(index == 9)
+
+                if (index == 9)
                 {
                     gOT.text = "Game Over";
                     gOT.color = Color.red;
+                }
+                else if (index > 3)
+                {
+                    gOT.text = "Victory";
+                    gOT.color = Color.green;
                 }
                 else
                 {
