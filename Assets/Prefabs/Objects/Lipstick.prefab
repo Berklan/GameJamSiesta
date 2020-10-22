@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5066104687769382164}
   - component: {fileID: 4964912764805701486}
   - component: {fileID: 192051984802743503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lipstick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 9002621883146465432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1856565, y: 9.802055, z: -131.8643}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.33598232, y: 0.33598232, z: 0.33598232}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.05543524, y: -0.24114323}

@@ -43,6 +43,8 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public AudioClip openingDoor;
     public AudioClip closingDoor;
+
+    public SceneController sceneController;
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -87,6 +89,8 @@ public class Movement : MonoBehaviour
             dButton.image.sprite = smallButtonClicked;
         else
             dButton.image.sprite = smallButton;
+        if(Input.GetKey(KeyCode.Escape))
+            GameObject.Find("SceneController").GetComponent<SceneController>().ChangeScene("Menu");
 
         time += Time.deltaTime;
 

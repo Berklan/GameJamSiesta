@@ -49,6 +49,8 @@ public class CharacterActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            spaceButton.image.sprite = gameObject.GetComponent<Movement>().bigButtonClicked;
+
             if (onAlarm && !alarmIsSet && item == null)
             {
                 Timer alarm = timer.GetComponent<Timer>();

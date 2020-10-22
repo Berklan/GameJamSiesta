@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5369503432981119231}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 593.77374, y: 363.99142, z: -279.1276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -44,22 +44,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   msg:
-  - Time out
-  - You've woken up dad!
+  - Dad's already awake
+  - You woke up dad before preparing the prank!
   - You missed your target
-  - Something went wrong
+  - Your hands blew up!
   - Kaboom!
   - Watered
-  - Something went wrong
+  - You blew up dad's eardrum!
   - That's a big rat!
-  - Something went wrong
+  - Shave on you!
+  - Your steps are too LOUD!
   img:
   - {fileID: 683738495416785082, guid: fc5337d25cf9fb24faa4e6e93e87e08b, type: 3}
-  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
-  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
-  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
-  - {fileID: 21300000, guid: 5a1d07c9347904641a33d9b7feb31c6d, type: 3}
+  - {fileID: 21300000, guid: 8e3cd05c074709643bcbd4b0d2257cf3, type: 3}
+  - {fileID: -7919770050301022312, guid: 6f7581e7ef5b31f4183226b6dba5a435, type: 3}
+  - {fileID: 21300000, guid: 62ee960014f75e84f9959ad241275df7, type: 3}
+  - {fileID: -7919770050301022312, guid: 6f7581e7ef5b31f4183226b6dba5a435, type: 3}
   - {fileID: 8585315942538100084, guid: 135d214d39529f74ea7bdaa3be497ad3, type: 3}
-  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
+  - {fileID: 21300000, guid: 5602b0b07fb64e64ea5640ec622aa021, type: 3}
   - {fileID: 21300000, guid: 6c6fe4937f0ba04489a15fd42f01cfe7, type: 3}
   - {fileID: 21300000, guid: a368a35ee7e046645a505446ef8150b6, type: 3}
+  - {fileID: 21300000, guid: 1d8a0225bff39754b87e5f6fb07b6bb3, type: 3}
+  aud:
+  - {fileID: 8300000, guid: c4d4ab667ae011c4a99db98ed50c17ee, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d73e528c1bf2e6f44b826a93947060a5, type: 3}
+  - {fileID: 8300000, guid: d73e528c1bf2e6f44b826a93947060a5, type: 3}
+  - {fileID: 8300000, guid: d73e528c1bf2e6f44b826a93947060a5, type: 3}
+  - {fileID: 8300000, guid: c5b2efb395d828d4191b83f23aacc11f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: f541db73b49c5d64ca8c287e7e320baf, type: 3}

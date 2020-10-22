@@ -30,7 +30,7 @@ public class QuestTab : MonoBehaviour
 
         Vector3 parentPos = gameObject.transform.position;
 
-        previousPos = new Vector3(parentPos.x - 40, parentPos.y - 60, 0);
+        previousPos = new Vector3(parentPos.x - 20, parentPos.y - 40, 0);
 
         // Get a random quest
         int index = Random.Range(0, quests.Count);
@@ -39,7 +39,7 @@ public class QuestTab : MonoBehaviour
         foreach(GameObject task in quest.tasks)
         {
             GameObject go = Instantiate(task, new Vector3(previousPos.x, previousPos.y, 0), Quaternion.identity, gameObject.transform);
-            previousPos.y -= 70;
+            previousPos.y -= 40;
             go.transform.localScale = transform.localScale;
         }
 
