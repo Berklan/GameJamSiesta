@@ -5,6 +5,11 @@ using UnityEngine;
 public enum Actions
 {
     PickUp,
+    Drop,
     FillUp,
-    Splash
+    Splash,
+    Blow,
+    LightUp,
+    PickNose,
+    Wait
 }

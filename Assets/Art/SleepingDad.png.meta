@@ -1268,180 +1268,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SleepingDad_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1960
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 541e534b6ce98ca60800000000000000
-      internalID: 7694574539626635589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1680
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 811876e470cdd9d50800000000000000
-      internalID: 6745789740809158936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1400
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43c4c79a48396b210800000000000000
-      internalID: 1348427336432503860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1120
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6d8e148e70105970800000000000000
-      internalID: 8741505012294651245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 840
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: deab4a058e12b1130800000000000000
-      internalID: 3538459213898758893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 560
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc93c083f779d60c0800000000000000
-      internalID: -4580838673308960309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 280
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a87de4793a74b860800000000000000
-      internalID: 7544789662945867936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SleepingDad_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 608
-        height: 280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4e0c4535b81cd340800000000000000
-      internalID: 4889810461979840075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SleepingDad_0
       rect:
         serializedVersion: 2
         x: 0
         y: 2240
-        width: 608
+        width: 600
         height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1452,6 +1284,174 @@ TextureImporter:
       bones: []
       spriteID: 3202cdadea4d48d30800000000000000
       internalID: 4432901780700667939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1960
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf3e20e68de0c5420800000000000000
+      internalID: 2619985405944194043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 745ac7cf2a9520460800000000000000
+      internalID: 7206420910301816135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1400
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae0a20bcacc95cd0800000000000000
+      internalID: -2568797070376169819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1120
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c3f2ac1fa2d3de0800000000000000
+      internalID: -1351877095173702513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34da7e226ba1b2150800000000000000
+      internalID: 5848797910642699587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c4ab53b95fc1100800000000000000
+      internalID: 80208940355963979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4405a01cb17acbd60800000000000000
+      internalID: 7907378783400382532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepingDad_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cd1520e47526e80800000000000000
+      internalID: -8186885180048155543
       vertices: []
       indices: 
       edges: []

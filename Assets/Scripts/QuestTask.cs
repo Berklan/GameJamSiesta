@@ -14,6 +14,8 @@ public class QuestTask : MonoBehaviour
     private void Start()
     {
         condition = false;
-        gameObject.GetComponent<Text>().text = description;
+        Text text = gameObject.GetComponent<Text>();
+        text.text = description;
+        text.fontSize = 14;
     }
 }

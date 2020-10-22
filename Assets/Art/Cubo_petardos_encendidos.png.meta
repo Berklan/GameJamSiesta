@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 6f7581e7ef5b31f4183226b6dba5a435
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6277605218674230651
+    second: Cubo_petardos_encendidos_0
+  - first:
+      213: -7919770050301022312
+    second: Cubo_petardos_encendidos_1
+  - first:
+      213: -2831677105603652563
+    second: Cubo_petardos_encendidos_2
+  - first:
+      213: 2932941027193011748
+    second: Cubo_petardos_encendidos_3
+  - first:
+      213: 3887513837891548973
+    second: Cubo_petardos_encendidos_4
+  - first:
+      213: -1491761277688757760
+    second: Cubo_petardos_encendidos_5
+  - first:
+      213: -101026629090083417
+    second: Cubo_petardos_encendidos_6
+  - first:
+      213: -26032263984277612
+    second: Cubo_petardos_encendidos_7
+  - first:
+      213: 6741117515633438342
+    second: Cubo_petardos_encendidos_8
+  - first:
+      213: 7897505626618868141
+    second: Cubo_petardos_encendidos_9
+  - first:
+      213: -2989429534246185678
+    second: Cubo_petardos_encendidos_10
+  - first:
+      213: -9005732072740115856
+    second: Cubo_petardos_encendidos_11
+  - first:
+      213: 4173722552049472387
+    second: Cubo_petardos_encendidos_12
+  - first:
+      213: 6716448560594206292
+    second: Cubo_petardos_encendidos_13
+  - first:
+      213: 8512970179955360224
+    second: Cubo_petardos_encendidos_14
+  - first:
+      213: 1710879900903947332
+    second: Cubo_petardos_encendidos_15
+  - first:
+      213: 1638517780901455207
+    second: Cubo_petardos_encendidos_16
+  - first:
+      213: -921761166816111750
+    second: Cubo_petardos_encendidos_17
+  - first:
+      213: -7315397348009089363
+    second: Cubo_petardos_encendidos_18
+  - first:
+      213: 7982084354107636591
+    second: Cubo_petardos_encendidos_19
+  - first:
+      213: 7095721581426400766
+    second: Cubo_petardos_encendidos_20
+  - first:
+      213: 7014315634695578730
+    second: Cubo_petardos_encendidos_21
+  - first:
+      213: 1563956198732811820
+    second: Cubo_petardos_encendidos_22
+  - first:
+      213: -1694675326148692664
+    second: Cubo_petardos_encendidos_23
+  - first:
+      213: 3113335849266885720
+    second: Cubo_petardos_encendidos_24
+  - first:
+      213: -2699576225077666256
+    second: Cubo_petardos_encendidos_25
+  - first:
+      213: -5673043068341936986
+    second: Cubo_petardos_encendidos_26
+  - first:
+      213: 5941478463111365729
+    second: Cubo_petardos_encendidos_27
+  - first:
+      213: -1324660462145436716
+    second: Cubo_petardos_encendidos_28
+  - first:
+      213: 2732161371114557282
+    second: Cubo_petardos_encendidos_29
+  - first:
+      213: -2580829629572990513
+    second: Cubo_petardos_encendidos_30
+  - first:
+      213: 5346325732329721151
+    second: Cubo_petardos_encendidos_31
+  - first:
+      213: -497271700091363783
+    second: Cubo_petardos_encendidos_32
+  - first:
+      213: -4651290347273549060
+    second: Cubo_petardos_encendidos_33
+  - first:
+      213: 9205357926241184381
+    second: Cubo_petardos_encendidos_34
+  - first:
+      213: 8349147289012852052
+    second: Cubo_petardos_encendidos_35
+  - first:
+      213: -2014849051245459926
+    second: Cubo_petardos_encendidos_36
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cubo_petardos_encendidos_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 464
+        width: 200
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89fa7099913571290800000000000000
+      internalID: -7919770050301022312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubo_petardos_encendidos_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 248
+        width: 200
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e32092356e3b820800000000000000
+      internalID: 2932941027193011748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cubo_petardos_encendidos_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 200
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27f0f61d3933f530800000000000000
+      internalID: 3887513837891548973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

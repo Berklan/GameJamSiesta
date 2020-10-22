@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa93ab44c71eed468f82e4f5a13f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 7
+  walkSpeed: 3
+  runSpeed: 5
   shiftButton: {fileID: 0}
   wButton: {fileID: 0}
   aButton: {fileID: 0}
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceButton: {fileID: 0}
   selectedItem: {fileID: 0}
-  bigButton: {fileID: 2052969975073588532, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
-  bigButtonClicked: {fileID: 346140782822038302, guid: ce9227f9e60c4a84ba3d4ed4e194adca, type: 3}
+  balloonVuvuzela: {fileID: 3935551667367620531, guid: 0a1558963a780374abae314c5a94dc1e, type: 3}
+  fireworksBucket: {fileID: 9002621883146465432, guid: 846da0a7067224c45956770ee5eb4df1, type: 3}
 --- !u!212 &1316270442
 SpriteRenderer:
   m_ObjectHideFlags: 0

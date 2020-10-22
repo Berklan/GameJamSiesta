@@ -12,6 +12,16 @@ TagManager:
   - Sink
   - Hit
   - Diary
+  - Vuvuzela
+  - Balloon
+  - BalloonVuvuzela
+  - Fireworks
+  - FireworksBucket
+  - Stove
+  - ShavingCream
+  - Feather
+  - Alarm
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -51,6 +61,9 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 3690513409
+    locked: 0
+  - name: Player
+    uniqueID: 750282045
     locked: 0
   - name: Ceiling
     uniqueID: 3133227977
