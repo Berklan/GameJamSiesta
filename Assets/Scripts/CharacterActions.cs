@@ -45,7 +45,7 @@ public class CharacterActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (onAlarm && !canPickAlarm)
+            if (onAlarm && !alarmIsSet && item == null)
             {
                 Timer alarm = timer.GetComponent<Timer>();
                 alarm.SetNewTimer(alarm.GetTimer() - 5f);
@@ -207,8 +207,11 @@ public class CharacterActions : MonoBehaviour
 
         if(timer.GetComponent<Timer>().GetTimer() <= 0f)
         {
-            if (dropped || canSetAlarm)
+            if (dropped || canPickAlarm)
             {
+                if (canPickAlarm)
+                    QuestItem("Trap", Actions.Wait);
+
                 // WIN
                 Debug.Log("WIN");
             }
