@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool facingRight = true;  // For determining which way the player is currently facing.
 
+    public AudioSource source;
+    public AudioClip andar;
+    public AudioClip correr;
+
     Vector2 movement;
 
     public float walkSpeed = 5f;
@@ -36,7 +40,8 @@ public class Movement : MonoBehaviour
     public float restDecrease;
 
     public Animator animator;
-
+    public AudioClip openingDoor;
+    public AudioClip closingDoor;
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -143,6 +148,33 @@ public class Movement : MonoBehaviour
         animator.SetFloat("vertical", movement.y);
         animator.SetFloat("speed", movement.sqrMagnitude);
 
+        if (movement.sqrMagnitude > 0)
+        {
+            bool change = false;
+            if (speed == walkSpeed && source.clip != andar)
+            {
+                source.clip = andar;
+                change = true;
+            }
+            else if (speed == runSpeed && source.clip != correr)
+            {
+                source.clip = correr;
+                change = true;
+            }
+            source.loop = true;
+
+            
+
+            if (change)
+            {
+                source.Stop();
+                source.Play();
+            }
+            if (!source.isPlaying)
+                source.Play();
+        }
+        else
+            source.Stop();
         // If the input is moving the player right and the player is facing left...
         if (movement.x < 0 && !facingRight)
         {
@@ -178,6 +210,9 @@ public class Movement : MonoBehaviour
         if(collision.gameObject.layer == 20)
         {
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.GetComponent<AudioSource>().Stop();
+            collision.GetComponent<AudioSource>().clip = openingDoor;
+            collision.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -194,6 +229,9 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.layer == 20)
         {
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            collision.GetComponent<AudioSource>().Stop();
+            collision.GetComponent<AudioSource>().clip = closingDoor;
+            collision.GetComponent<AudioSource>().Play();
         }
     }
 }

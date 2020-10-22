@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6800446695726677625}
   - component: {fileID: 1316270442}
   - component: {fileID: 1316270447}
+  - component: {fileID: 2145713767849397790}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -85,6 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa93ab44c71eed468f82e4f5a13f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 2145713767849397790}
+  andar: {fileID: 8300000, guid: 73d501935df6701439c10bf3a8cf9682, type: 3}
+  correr: {fileID: 8300000, guid: f541db73b49c5d64ca8c287e7e320baf, type: 3}
   walkSpeed: 3
   runSpeed: 5
   shiftButton: {fileID: 0}
@@ -101,6 +105,8 @@ MonoBehaviour:
   runningCloseIncrease: 5
   restDecrease: 2
   animator: {fileID: 1316270447}
+  openingDoor: {fileID: 8300000, guid: c396dbf5d2301a645bf51ef2f0e4626e, type: 3}
+  closingDoor: {fileID: 8300000, guid: 31dc98cf68884294eb86daa56f9041f1, type: 3}
 --- !u!114 &6800446695726677625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceButton: {fileID: 0}
   selectedItem: {fileID: 0}
+  timer: {fileID: 0}
   balloonVuvuzela: {fileID: 3935551667367620531, guid: 0a1558963a780374abae314c5a94dc1e, type: 3}
   fireworksBucket: {fileID: 9002621883146465432, guid: 846da0a7067224c45956770ee5eb4df1, type: 3}
 --- !u!212 &1316270442
@@ -187,3 +194,99 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &2145713767849397790
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800446695726677507}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
