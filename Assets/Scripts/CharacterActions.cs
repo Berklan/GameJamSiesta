@@ -32,6 +32,10 @@ public class CharacterActions : MonoBehaviour
     public GameObject balloonVuvuzela;
     public GameObject fireworksBucket;
 
+    private AudioSource fireworksLoop;
+    private AudioSource fireworksExplosion;
+    public AudioSource alarmSound;
+    bool Explosion = false;
     private void Awake()
     {
         selectedItem.GetComponent<Image>().enabled = false;
@@ -211,12 +215,35 @@ public class CharacterActions : MonoBehaviour
             {
                 if (canPickAlarm)
                     QuestItem("Trap", Actions.Wait);
+                if(lit && !Explosion)
+                {
+                    fireworksLoop.Stop();
 
+                    fireworksExplosion.Play();
+                    Explosion = true;
+                }
+                else if(!lit && !Explosion)
+                {
+                    alarmSound.Play();
+                    Explosion = true;
+                }
                 // WIN
                 Debug.Log("WIN");
             }
             else
             {
+                if (lit && !Explosion)
+                {
+                    fireworksLoop.Stop();
+
+                    fireworksExplosion.Play();
+                    Explosion = true;
+                }
+                else if (!lit && !Explosion)
+                {
+                    alarmSound.Play();
+                    Explosion = true;
+                }
                 // LOSE
                 Debug.Log("LOSE");
             }
@@ -263,8 +290,10 @@ public class CharacterActions : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Sink") && item != null)
         {
+           
             if(item.CompareTag("Bucket") && picked && !litUp && !fillUp)
             {
+                collision.gameObject.GetComponent<AudioSource>().Play();
                 item.GetComponent<Animator>().SetBool("filled", true);
                 fillUp = true;
             }
@@ -272,13 +301,18 @@ public class CharacterActions : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Stove") && item != null)
         {
+            collision.gameObject.GetComponent<AudioSource>().Play();
             if (item.CompareTag("FireworksBucket") && picked && !fillUp && !litUp)
             {
+                item.GetComponents<AudioSource>()[0].Play();
+                fireworksLoop = item.GetComponents<AudioSource>()[1];
+                fireworksExplosion= item.GetComponents<AudioSource>()[2];
                 // It's lit, set timer for gameover
                 item.GetComponent<Animator>().SetBool("lit", true);
                 timer.GetComponent<Timer>().SetNewTimer(10f);
                 QuestItem(item.tag, Actions.LightUp);
                 litUp = true;
+                Invoke("playLoopFireworksSound", 6.5f);
             }
         }
 
@@ -342,6 +376,12 @@ public class CharacterActions : MonoBehaviour
         }
     }
 
+    private void playLoopFireworksSound()
+    {
+        Debug.Log("loop Mecha");
+        fireworksLoop.Stop();
+        fireworksLoop.Play();
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 9)
