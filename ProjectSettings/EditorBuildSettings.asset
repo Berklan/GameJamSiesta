@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/big_map.unity
+    guid: cb51b6dbb4d1b154189c2b0747e58e5c
+  - enabled: 1
+    path: Assets/Scenes/BigMap.unity
+    guid: 7fecf4a0948e82d4ba3ffd5fa25817bf
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a67cb3f3e0300944485a8d4e72c5b9f2
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 4e2e26cac40829a44a8104bc89d89073
   m_configObjects: {}

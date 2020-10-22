@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5369503432981119231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4166031152574283619}
+  - component: {fileID: 1308269865128047561}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4166031152574283619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5369503432981119231}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 593.77374, y: 363.99142, z: -279.1276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308269865128047561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5369503432981119231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09aa43f4ac879c4aa69349515688ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  msg:
+  - Time out
+  - You've woken up dad!
+  - You missed your target
+  - Something went wrong
+  - Kaboom!
+  - Watered
+  - Something went wrong
+  - That's a big rat!
+  - Something went wrong
+  img:
+  - {fileID: 683738495416785082, guid: fc5337d25cf9fb24faa4e6e93e87e08b, type: 3}
+  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
+  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
+  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
+  - {fileID: 21300000, guid: 5a1d07c9347904641a33d9b7feb31c6d, type: 3}
+  - {fileID: 8585315942538100084, guid: 135d214d39529f74ea7bdaa3be497ad3, type: 3}
+  - {fileID: 21300000, guid: 3b257d20ef0c63840b0ecb0a82657a09, type: 3}
+  - {fileID: 21300000, guid: 6c6fe4937f0ba04489a15fd42f01cfe7, type: 3}
+  - {fileID: 21300000, guid: a368a35ee7e046645a505446ef8150b6, type: 3}
