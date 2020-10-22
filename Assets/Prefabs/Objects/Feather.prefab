@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2904334079226601542}
   - component: {fileID: 3963896465750280095}
   - component: {fileID: 2688448771129066454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Feather
-  m_TagString: Untagged
+  m_TagString: Feather
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8410977714539335007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.35448933, y: 9.449935, z: -129.67851}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3264563, y: 0.3264563, z: 0.3264563}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

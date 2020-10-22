@@ -10,5 +10,6 @@ public enum Actions
     Splash,
     Blow,
     LightUp,
-    PickNose
+    PickNose,
+    Wait
 }

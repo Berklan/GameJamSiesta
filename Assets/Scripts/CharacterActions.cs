@@ -16,6 +16,11 @@ public class CharacterActions : MonoBehaviour
     private bool lit = false;
     private bool dropable = false;
     private bool dropped = false;
+    private bool creamed = false;
+    private bool onAlarm = false;
+    private bool canSetAlarm = false;
+    private bool alarmIsSet = false;
+    private bool canPickAlarm = false;
 
     public Button spaceButton;
     public GameObject selectedItem;
@@ -30,6 +35,7 @@ public class CharacterActions : MonoBehaviour
     private void Awake()
     {
         selectedItem.GetComponent<Image>().enabled = false;
+        GameObject.Find("Cream").GetComponent<SpriteRenderer>().enabled = false;
         questTab = GameObject.Find("QuestTab");
     }
 
@@ -39,20 +45,34 @@ public class CharacterActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            spaceButton.image.sprite = gameObject.GetComponent<Movement>().bigButtonClicked;
+            if (onAlarm && !canPickAlarm)
+            {
+                Timer alarm = timer.GetComponent<Timer>();
+                alarm.SetNewTimer(alarm.GetTimer() - 5f);
+            }
 
             // Pick up item
             if (!picked)
             {
-                if (collide)
+                if (collide || (canPickAlarm && onAlarm))
                 {
-                    item = collisionItem;
-                    img.sprite = item.GetComponent<SpriteRenderer>().sprite;
-                    img.SetNativeSize();
-                    img.transform.localScale = item.transform.localScale;
-                    img.enabled = true;
+                    if (canPickAlarm && onAlarm)
+                    {
+                        item = GameObject.Find("Alarm").transform.GetChild(0).gameObject;
+                        item.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                        canPickAlarm = false;
+                        alarmIsSet = false;
+                    }
+                    else
+                    {
+                        item = collisionItem;                   
+                    }
                     item.transform.parent = gameObject.transform;
                     item.transform.position = gameObject.transform.position;
+                    img.sprite = item.GetComponent<SpriteRenderer>().sprite;
+                    img.SetNativeSize();
+                    img.transform.localScale = item.transform.localScale * 2;
+                    img.enabled = true;   
                     item.GetComponent<SpriteRenderer>().enabled = false;
                     picked = true;
                     if (filled)
@@ -67,6 +87,7 @@ public class CharacterActions : MonoBehaviour
             }
             else
             {
+                // Fuse items
                 if (collide)
                 {
                     if ((item.CompareTag("Vuvuzela") && collisionItem.CompareTag("Balloon")) || (item.CompareTag("Balloon") && collisionItem.CompareTag("Vuvuzela")))
@@ -97,6 +118,7 @@ public class CharacterActions : MonoBehaviour
                     }
                     else
                     {
+                        // Swap items
                         if (collisionItem != item)
                         {
                             GameObject currentItem = item.gameObject;
@@ -104,7 +126,7 @@ public class CharacterActions : MonoBehaviour
                             item = collisionItem;
                             img.sprite = item.GetComponent<SpriteRenderer>().sprite;
                             img.SetNativeSize();
-                            img.transform.localScale = item.transform.localScale;
+                            img.transform.localScale = item.transform.localScale * 2;
                             img.enabled = true;
                             item.transform.parent = gameObject.transform;
                             item.transform.position = gameObject.transform.position;
@@ -128,8 +150,25 @@ public class CharacterActions : MonoBehaviour
                         dropable = false;
                     }
                     item.GetComponent<SpriteRenderer>().enabled = true;
-                    item.transform.parent = null;
-                    item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
+
+                    if (canSetAlarm && onAlarm)
+                    {
+                        canSetAlarm = false;
+                        alarmIsSet = true;
+                        canPickAlarm = true;
+                        GameObject alarm = GameObject.Find("Alarm");
+
+                        item.transform.parent = alarm.transform;
+                        item.transform.position = new Vector3(alarm.transform.position.x, alarm.transform.position.y, 0);
+                        item.GetComponent<SpriteRenderer>().sortingLayerName = "Item";
+                        QuestItem(item.tag, Actions.Drop);
+                    }
+                    else
+                    {
+                        item.transform.parent = null;
+                        item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y, 1);
+                    }
+                    
                     item = null;
                     img.sprite = null;
                     img.enabled = false;
@@ -151,7 +190,7 @@ public class CharacterActions : MonoBehaviour
             filled = true;
             img.sprite = item.GetComponent<SpriteRenderer>().sprite;
             img.SetNativeSize();
-            img.transform.localScale = item.transform.localScale;
+            img.transform.localScale = item.transform.localScale * 2;
             img.enabled = true;
             QuestItem(item.tag, Actions.FillUp);
         }
@@ -161,14 +200,14 @@ public class CharacterActions : MonoBehaviour
             lit = true;
             img.sprite = item.GetComponent<SpriteRenderer>().sprite;
             img.SetNativeSize();
-            img.transform.localScale = item.transform.localScale;
+            img.transform.localScale = item.transform.localScale * 2;
             img.enabled = true;
             QuestItem(item.tag, Actions.LightUp);
         }
 
         if(timer.GetComponent<Timer>().GetTimer() <= 0f)
         {
-            if (dropped)
+            if (dropped || canSetAlarm)
             {
                 // WIN
                 Debug.Log("WIN");
@@ -190,7 +229,7 @@ public class CharacterActions : MonoBehaviour
         item = Instantiate(newObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity, gameObject.transform);
         img.sprite = item.GetComponent<SpriteRenderer>().sprite;
         img.SetNativeSize();
-        img.transform.localScale = item.transform.localScale;
+        img.transform.localScale = item.transform.localScale * 2;
         img.enabled = true;
         item.transform.parent = gameObject.transform;
         item.transform.position = gameObject.transform.position;
@@ -240,6 +279,25 @@ public class CharacterActions : MonoBehaviour
             }
         }
 
+        if (collision.CompareTag("Alarm"))
+        {
+            onAlarm = true;
+
+            if (item == null)
+            {
+                if (alarmIsSet)
+                    canPickAlarm = true;
+            }
+            else
+            {
+                if (item.CompareTag("Trap"))
+                {
+                    canSetAlarm = true;
+                }
+            }
+        }
+
+        // Contact with dad
         if (collision.gameObject.CompareTag("Hit") && item != null)
         {
             if(item.gameObject.CompareTag("Bucket") && filled)
@@ -255,7 +313,28 @@ public class CharacterActions : MonoBehaviour
             if (item.gameObject.CompareTag("FireworksBucket") && lit)
             {
                 dropable = true;
-                
+            }
+
+            if (item.gameObject.CompareTag("ShavingCream"))
+            {
+                creamed = true;
+                GameObject.Find("Cream").GetComponent<SpriteRenderer>().enabled = true;
+                QuestItem(item.tag, Actions.FillUp);
+            }
+
+            if (item.gameObject.CompareTag("Feather"))
+            {
+                QuestItem(item.tag, Actions.PickNose);
+                if (creamed)
+                {
+                    // WIN
+                    Debug.Log("WIN");
+                }
+                else
+                {
+                    // LOSE didnt complete all the tasks
+                    Debug.Log("LOSE");
+                }
             }
         }
     }
@@ -271,10 +350,20 @@ public class CharacterActions : MonoBehaviour
         {
             dropable = false;
         }
+
+        if (collision.CompareTag("Alarm"))
+        {
+            onAlarm = false;
+        }
     }
 
     private void QuestItem(string tag, Actions action)
     {
         questTab.GetComponent<QuestTab>().CheckQuest(tag, action);
+    }
+
+    private void GameOver(string tag)
+    {
+        //GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage(tag);
     }
 }
