@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
 
         if(currentTime <= 0f)
         {
-            Debug.Log("Game Over");
+            GameObject.Find("SceneController").GetComponent<SceneController>().GameOverMessage("awake");
         }
     }
 
