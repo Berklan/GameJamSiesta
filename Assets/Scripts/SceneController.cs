@@ -50,6 +50,11 @@ public class SceneController : MonoBehaviour
                     gOT.text = "Victory";
                     gOT.color = Color.green;
                 }
+                else if(index == 9)
+                {
+                    gOT.text = "Game Over";
+                    gOT.color = Color.red;
+                }
                 else
                 {
                     gOT.text = "Game Over";
@@ -72,7 +77,7 @@ public class SceneController : MonoBehaviour
                 index = 0;
                 break;
 
-            case "awake":
+            case "feather":
                 index = 1;
                 break;
 
@@ -102,6 +107,10 @@ public class SceneController : MonoBehaviour
 
             case "success foam":
                 index = 8;
+                break;
+
+            case "awake":
+                index = 9;
                 break;
         }
 

@@ -383,7 +383,7 @@ public class CharacterActions : MonoBehaviour
                 {
                     // LOSE didnt complete all the tasks
                     Debug.Log("LOSE");
-                    GameOver("awake");
+                    GameOver("feather");
                 }
             }
         }
